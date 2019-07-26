@@ -9,7 +9,10 @@ return [
     false, // $matchHost
     [ // $staticRoutes
         '/api/authentification' => [[['_route' => 'authentification', '_controller' => 'App\\Controller\\AuthentificationController::register'], null, ['POST' => 0], null, false, false, null]],
-        '/api/connect' => [[['_route' => 'connect', '_controller' => 'App\\Controller\\AuthentificationController::login'], null, ['POST' => 0], null, false, false, null]],
+        '/api/connect_check' => [
+            [['_route' => 'connect', '_controller' => 'App\\Controller\\AuthentificationController::login'], null, ['POST' => 0], null, false, false, null],
+            [['_route' => 'api_connect_check'], null, null, null, false, false, null],
+        ],
     ],
     [ // $regexpList
         0 => '{^(?'
