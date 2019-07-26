@@ -37,6 +37,41 @@ class Utilisateur implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=60)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=60)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="string", length=60)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="bigint")
+     */
+    private $cin;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Profil", inversedBy="utilisateurs")
+     */
+    private $profil;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Partenaire", inversedBy="utilisateurs")
+     */
+    private $partenaire;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Statut", inversedBy="utilisateurs")
+     */
+    private $statut;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -108,5 +143,89 @@ class Utilisateur implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getCin(): ?int
+    {
+        return $this->cin;
+    }
+
+    public function setCin(int $cin): self
+    {
+        $this->cin = $cin;
+
+        return $this;
+    }
+
+    public function getProfil(): ?Profil
+    {
+        return $this->profil;
+    }
+
+    public function setProfil(?Profil $profil): self
+    {
+        $this->profil = $profil;
+
+        return $this;
+    }
+
+    public function getPartenaire(): ?Partenaire
+    {
+        return $this->partenaire;
+    }
+
+    public function setPartenaire(?Partenaire $partenaire): self
+    {
+        $this->partenaire = $partenaire;
+
+        return $this;
+    }
+
+    public function getStatut(): ?Statut
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(?Statut $statut): self
+    {
+        $this->statut = $statut;
+
+        return $this;
     }
 }

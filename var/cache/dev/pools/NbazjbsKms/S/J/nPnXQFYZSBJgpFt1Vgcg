@@ -9,7 +9,11 @@
             'ApiPlatform\\Core\\Metadata\\Resource\\ResourceNameCollection' => [
                 'classes' => [
                     [
+                        'App\\Entity\\Statut',
+                        'App\\Entity\\Compte',
                         'App\\Entity\\Utilisateur',
+                        'App\\Entity\\Partenaire',
+                        'App\\Entity\\Profil',
                     ],
                 ],
             ],
