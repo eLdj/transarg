@@ -60,6 +60,11 @@ class Partenaire
      */
     private $compte;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Utilisateur", inversedBy="partenaires")
+     */
+    private $utilisateur;
+
     public function __construct()
     {
         $this->utilisateurs = new ArrayCollection();
@@ -187,6 +192,18 @@ class Partenaire
         if ($newPartenaire !== $compte->getPartenaire()) {
             $compte->setPartenaire($newPartenaire);
         }
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): self
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
