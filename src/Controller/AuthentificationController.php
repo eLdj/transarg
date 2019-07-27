@@ -77,7 +77,7 @@ class AuthentificationController extends AbstractController
       
     }
     /**
-     * @Route("/connect_check",name="connect",methods={"POST"})
+     * @Route("/connect_check",name="connect",methods={"POST","GET"})
      * @return JsonResponse
      */
     public function login(Request $request)
