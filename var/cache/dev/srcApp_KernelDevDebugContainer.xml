@@ -4341,7 +4341,11 @@
       <tag name="console.command" command="server:run"/>
       <argument>/home/aminata/transarg/public</argument>
       <argument>dev</argument>
+<<<<<<< HEAD
       <argument>/home/aminata/transarg/var/cache</argument>
+=======
+      <argument>/home/mister_d/Bureau/transfert/var/cache</argument>
+>>>>>>> 4d4f18935f94bfbadd4a2f41afcaaacd60b50260
       <call method="setName">
         <argument>server:run</argument>
       </call>
@@ -4350,21 +4354,33 @@
       <tag name="console.command" command="server:start"/>
       <argument>/home/aminata/transarg/public</argument>
       <argument>dev</argument>
+<<<<<<< HEAD
       <argument>/home/aminata/transarg/var/cache</argument>
+=======
+      <argument>/home/mister_d/Bureau/transfert/var/cache</argument>
+>>>>>>> 4d4f18935f94bfbadd4a2f41afcaaacd60b50260
       <call method="setName">
         <argument>server:start</argument>
       </call>
     </service>
     <service id="web_server.command.server_stop" class="Symfony\Bundle\WebServerBundle\Command\ServerStopCommand" public="false">
       <tag name="console.command" command="server:stop"/>
+<<<<<<< HEAD
       <argument>/home/aminata/transarg/var/cache</argument>
+=======
+      <argument>/home/mister_d/Bureau/transfert/var/cache</argument>
+>>>>>>> 4d4f18935f94bfbadd4a2f41afcaaacd60b50260
       <call method="setName">
         <argument>server:stop</argument>
       </call>
     </service>
     <service id="web_server.command.server_status" class="Symfony\Bundle\WebServerBundle\Command\ServerStatusCommand" public="false">
       <tag name="console.command" command="server:status"/>
+<<<<<<< HEAD
       <argument>/home/aminata/transarg/var/cache</argument>
+=======
+      <argument>/home/mister_d/Bureau/transfert/var/cache</argument>
+>>>>>>> 4d4f18935f94bfbadd4a2f41afcaaacd60b50260
       <call method="setName">
         <argument>server:status</argument>
       </call>

@@ -35,7 +35,7 @@ class AuthentificationController extends AbstractController
            $user->setNom($values->nom);
            $user->setPrenom($values->prenom);
            $user->setEmail($values->email);
-           $profil=$this->getDoctrine()->getRepository(Profil::class)->find($values->profil);           
+           $profil=$this->getDoctrine()->getRepository(Profil::class)->find($values->profil);              
            $user->setProfil($profil); 
            $statut = $this->getDoctrine()->getRepository(Statut::class)->find($values->statut);
            $user->setStatut($statut);
