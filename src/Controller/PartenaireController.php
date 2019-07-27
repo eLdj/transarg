@@ -2,15 +2,16 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Partenaire;
+use App\Entity\Utilisateur;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use App\Entity\Partenaire;
-use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
 * @Route("/api")
@@ -39,7 +40,9 @@ public function Add(Request $request, EntityManagerInterface $entityManager){
         $partenaire->setRaisonSocilale($valeurs->raisonSocilale);
         $partenaire->setEmail($valeurs->email);
         $partenaire->setNumeroCompte($valeurs->numeroCompte);
- 
+        $user = $this->getDoctrine()->getRepository(Utilisateur::class)->find($valeurs->utilisateur);
+        $partenaire->setUtilisateur($user);
+
         $entityManager->persist($partenaire);
         $entityManager->flush();
          
