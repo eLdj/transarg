@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -71,6 +73,16 @@ class Utilisateur implements UserInterface
      * @ORM\ManyToOne(targetEntity="App\Entity\Statut", inversedBy="utilisateurs")
      */
     private $statut;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Partenaire", mappedBy="utilisateur")
+     */
+    private $partenaires;
+
+    public function __construct()
+    {
+        $this->partenaires = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -225,6 +237,37 @@ class Utilisateur implements UserInterface
     public function setStatut(?Statut $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Partenaire[]
+     */
+    public function getPartenaires(): Collection
+    {
+        return $this->partenaires;
+    }
+
+    public function addPartenaire(Partenaire $partenaire): self
+    {
+        if (!$this->partenaires->contains($partenaire)) {
+            $this->partenaires[] = $partenaire;
+            $partenaire->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removePartenaire(Partenaire $partenaire): self
+    {
+        if ($this->partenaires->contains($partenaire)) {
+            $this->partenaires->removeElement($partenaire);
+            // set the owning side to null (unless already changed)
+            if ($partenaire->getUtilisateur() === $this) {
+                $partenaire->setUtilisateur(null);
+            }
+        }
 
         return $this;
     }
