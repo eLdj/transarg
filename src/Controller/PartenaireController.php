@@ -53,14 +53,12 @@ public function Add(Request $request, EntityManagerInterface $entityManager){
             ];
             return new JsonResponse($datas, 201);
 
-
-
-}
-$datas= [
-           
-    'status' => 500,
-     'message' => 'erreur '
- ];
-return new JsonResponse($datas, 500);
-}
+        }
+        $datas= [
+                
+            'status' => 500,
+            'message' => 'erreur '
+        ];
+        return new JsonResponse($datas, 500);
+    }
 }

@@ -111,6 +111,7 @@ class ComposerStaticInitc78ea43bf27c2f844588f5b6edd9d30a
         'F' => 
         array (
             'Fig\\Link\\' => 9,
+            'FOS\\UserBundle\\' => 15,
             'FOS\\RestBundle\\' => 15,
         ),
         'D' => 
@@ -419,6 +420,10 @@ class ComposerStaticInitc78ea43bf27c2f844588f5b6edd9d30a
         'Fig\\Link\\' => 
         array (
             0 => __DIR__ . '/..' . '/fig/link-util/src',
+        ),
+        'FOS\\UserBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
         ),
         'FOS\\RestBundle\\' => 
         array (

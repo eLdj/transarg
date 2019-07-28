@@ -4,18 +4,21 @@ namespace App\Controller;
 
 use App\Entity\Profil;
 use App\Entity\Statut;
+use App\Entity\Partenaire;
 use App\Entity\Utilisateur;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use App\Entity\Partenaire;
 
 /**
  * @Route("/api")
@@ -24,6 +27,7 @@ class AuthentificationController extends AbstractController
 {
     /**
      * @Route("/authentification", name="authentification", methods={"POST"})
+     *  @Security("has_role('ROLE_SUPERADMIN')")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager,SerializerInterface $serializer, ValidatorInterface $validator )
     {
@@ -39,13 +43,12 @@ class AuthentificationController extends AbstractController
            $user->setProfil($profil); 
            $statut = $this->getDoctrine()->getRepository(Statut::class)->find($values->statut);
            $user->setStatut($statut);
+           $user->setRoles(['ROLE_SUPERUSER']);
            $user->setUsername($values->username);
            $user->setPassword($passwordEncoder->encodePassword($user, $values->password));
            $partenaire = $this->getDoctrine()->getRepository(Partenaire::class)->find($values->partenaire);
-           $user->setPartenaire($partenaire);            
-           $user->setRoles($user->getRoles());           
-           $user->setCin($values->cin); 
-           
+           $user->setPartenaire($partenaire);           
+           $user->setCin($values->cin);        
            $errors = $validator->validate($user);
 
            if(count($errors))
