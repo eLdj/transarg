@@ -64,10 +64,10 @@ class Partenaire extends \App\Entity\Partenaire implements \Doctrine\ORM\Proxy\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'nomEntreprise', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'ninea', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'raisonSocilale', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'numeroCompte', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'utilisateurs', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'compte', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'utilisateur'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'nomEntreprise', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'ninea', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'raisonSocilale', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'numeroCompte', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'utilisateurs', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'compte', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'utilisateur', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'montantCompte'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'nomEntreprise', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'ninea', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'raisonSocilale', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'numeroCompte', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'utilisateurs', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'compte', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'utilisateur'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'nomEntreprise', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'ninea', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'raisonSocilale', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'numeroCompte', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'utilisateurs', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'compte', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'utilisateur', '' . "\0" . 'App\\Entity\\Partenaire' . "\0" . 'montantCompte'];
     }
 
     /**
@@ -395,6 +395,28 @@ class Partenaire extends \App\Entity\Partenaire implements \Doctrine\ORM\Proxy\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUtilisateur', [$utilisateur]);
 
         return parent::setUtilisateur($utilisateur);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMontantCompte(): ?int
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMontantCompte', []);
+
+        return parent::getMontantCompte();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setMontantCompte(int $montantCompte): \App\Entity\Partenaire
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMontantCompte', [$montantCompte]);
+
+        return parent::setMontantCompte($montantCompte);
     }
 
 }

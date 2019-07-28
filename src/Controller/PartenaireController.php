@@ -8,9 +8,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -18,15 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 */
 class PartenaireController extends AbstractController
 {
-    /**
-    * @Route("/partenaire", name="partenaire" ,methods={"GET"})
-    */
-    public function index()
-    {
-        return $this->render('partenaire/index.html.twig', [
-            'controller_name' => 'PartenaireController',
-        ]);
-    }
+  
 /**
 * @Route ("/ajoutpar",name="ajoutpar" ,methods={"POST"})
 */
@@ -42,6 +34,7 @@ public function Add(Request $request, EntityManagerInterface $entityManager){
         $partenaire->setNumeroCompte($valeurs->numeroCompte);
         $user = $this->getDoctrine()->getRepository(Utilisateur::class)->find($valeurs->utilisateur);
         $partenaire->setUtilisateur($user);
+        $partenaire->setMontantCompte($valeurs->montantCompte);
 
         $entityManager->persist($partenaire);
         $entityManager->flush();
@@ -60,5 +53,42 @@ public function Add(Request $request, EntityManagerInterface $entityManager){
             'message' => 'erreur '
         ];
         return new JsonResponse($datas, 500);
+    }
+
+    /**
+     * @Route("/modifpart/{id}", name="modif_partenaire",methods={"PUT"})
+     */
+    public function modif(Request $request, SerializerInterface $serializer, Partenaire $partenaire, ValidatorInterface $validateur, EntityManagerInterface $entityManager)
+    {
+        $partenaireModif=$entityManager->getRepository(Partenaire::class)->find($partenaire->getId());
+
+        $donnee=json_decode($request->getContent());
+
+        foreach($donnee as $cle=>$valeur)
+        {
+            if($cle && !empty($valeur))
+            {
+                $nom = ucfirst($cle);
+                $setter = 'set'.$nom;
+                $partenaireModif->$setter($valeur);
+            }
+        }
+
+        $errors = $validateur->validate($partenaireModif);
+        
+        if(count($errors))
+        {
+            $errors = $serializer->serialize($errors, 'json');
+            return new Response($errors, 500, [
+                'Content-Type' => 'application/json'
+            ]);
+        }
+
+        $entityManager->flush();
+        $data = [
+            'statuse' => 200,
+            'messages' => 'Le téléphone a bien été mis à jour'
+        ];
+        return new JsonResponse($data);
     }
 }

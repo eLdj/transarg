@@ -65,6 +65,11 @@ class Partenaire
      */
     private $utilisateur;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $montantCompte;
+
     public function __construct()
     {
         $this->utilisateurs = new ArrayCollection();
@@ -204,6 +209,18 @@ class Partenaire
     public function setUtilisateur(?Utilisateur $utilisateur): self
     {
         $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    public function getMontantCompte(): ?int
+    {
+        return $this->montantCompte;
+    }
+
+    public function setMontantCompte(int $montantCompte): self
+    {
+        $this->montantCompte = $montantCompte;
 
         return $this;
     }
