@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Project Test Suite" tests="1" assertions="0" errors="1" failures="0" skipped="0" time="0.330261">
+    <testsuite name="App\Tests\PartenaireControllerTest" file="/home/mister_d/Bureau/transfert/tests/PartenaireControllerTest.php" tests="1" assertions="0" errors="1" failures="0" skipped="0" time="0.330261">
+      <testcase name="testAddPartenaire" class="App\Tests\PartenaireControllerTest" classname="App.Tests.PartenaireControllerTest" file="/home/mister_d/Bureau/transfert/tests/PartenaireControllerTest.php" line="9" assertions="0" time="0.330261">
+        <error type="Error">App\Tests\PartenaireControllerTest::testAddPartenaire
+Error: Call to undefined method Doctrine\DBAL\Exception\ConnectionException::getStatusCode()
+
+/home/mister_d/Bureau/transfert/src/EventSubscriber/ExeptionSubscriber.php:15
+/home/mister_d/Bureau/transfert/vendor/symfony/event-dispatcher/Debug/WrappedListener.php:126
+/home/mister_d/Bureau/transfert/vendor/symfony/event-dispatcher/EventDispatcher.php:258
+/home/mister_d/Bureau/transfert/vendor/symfony/event-dispatcher/EventDispatcher.php:233
+/home/mister_d/Bureau/transfert/vendor/symfony/event-dispatcher/EventDispatcher.php:73
+/home/mister_d/Bureau/transfert/vendor/symfony/event-dispatcher/Debug/TraceableEventDispatcher.php:168
+/home/mister_d/Bureau/transfert/vendor/symfony/http-kernel/HttpKernel.php:222
+/home/mister_d/Bureau/transfert/vendor/symfony/http-kernel/HttpKernel.php:79
+/home/mister_d/Bureau/transfert/vendor/symfony/http-kernel/Kernel.php:198
+/home/mister_d/Bureau/transfert/vendor/symfony/http-kernel/Client.php:68
+/home/mister_d/Bureau/transfert/vendor/symfony/framework-bundle/Client.php:131
+/home/mister_d/Bureau/transfert/vendor/symfony/browser-kit/Client.php:407
+/home/mister_d/Bureau/transfert/tests/PartenaireControllerTest.php:14
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>

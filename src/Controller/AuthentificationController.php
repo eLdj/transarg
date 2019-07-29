@@ -27,7 +27,7 @@ class AuthentificationController extends AbstractController
 {
     /**
      * @Route("/authentification", name="authentification", methods={"POST"})
-     *  @Security("has_role('ROLE_SUPERADMIN')")
+     * @IsGranted("ROLE_SUPERADMIN")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager,SerializerInterface $serializer, ValidatorInterface $validator )
     {
@@ -41,9 +41,9 @@ class AuthentificationController extends AbstractController
            $user->setEmail($values->email);
            $profil=$this->getDoctrine()->getRepository(Profil::class)->find($values->profil);              
            $user->setProfil($profil); 
-           $statut = $this->getDoctrine()->getRepository(Statut::class)->find($values->statut);
-           $user->setStatut($statut);
            $user->setRoles(['ROLE_SUPERUSER']);
+           $statut = $this->getDoctrine()->getRepository(Statut::class)->find($values->statut);
+           $user->setStatut($statut);     
            $user->setUsername($values->username);
            $user->setPassword($passwordEncoder->encodePassword($user, $values->password));
            $partenaire = $this->getDoctrine()->getRepository(Partenaire::class)->find($values->partenaire);

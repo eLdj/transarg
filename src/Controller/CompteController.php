@@ -22,25 +22,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class CompteController extends AbstractController
 {
-    /**
-     * @Route("/", name="compte_index", methods={"GET"})
-     */
-    public function index(CompteRepository $compteRepository): Response
-    {
-        return $this->render('compte/index.html.twig', [
-            'comptes' => $compteRepository->findAll(),
-        ]);
-    }
-
+    
     /**
      * @Route("/new", name="compte_new", methods={"GET","POST"})
-     * 
      */
     public function new(Request $request, EntityManagerInterface $entityManager,SerializerInterface $serializer, ValidatorInterface $validator)
     {
         $valeurs = json_decode($request->getContent());
        
-        if(isset($valeurs->montant)){
+        if(isset($valeurs->montant))
+        {
            $compte = new Compte();
            $compte->setMontant($valeurs->montant);
            $compte->setDateDepot(new \DateTime());             
@@ -76,33 +67,4 @@ class CompteController extends AbstractController
     }
 
 
-    /**
-     * @Route("/{id}", name="compte_show", methods={"GET"})
-     */
-    public function show(Compte $compte): Response
-    {
-        return $this->render('compte/show.html.twig', [
-            'compte' => $compte,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}/edit", name="compte_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Compte $compte): Response
-    {
-        $form = $this->createForm(CompteType::class, $compte);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('compte_index');
-        }
-
-        return $this->render('compte/edit.html.twig', [
-            'compte' => $compte,
-            'form' => $form->createView(),
-        ]);
-    }
 }

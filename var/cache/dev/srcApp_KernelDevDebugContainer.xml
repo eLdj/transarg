@@ -1517,6 +1517,14 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
+        <argument>console.command</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.exception</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
@@ -4358,7 +4366,7 @@
       <tag name="console.command" command="server:run"/>
       <argument>/home/mister_d/Bureau/transfert/public</argument>
       <argument>dev</argument>
-      <argument>/home/mister_d/Bureau/transfert/var/cache</argument>
+      <argument>/home/mister_d/Bureau/transfert</argument>
       <call method="setName">
         <argument>server:run</argument>
       </call>
@@ -4367,21 +4375,21 @@
       <tag name="console.command" command="server:start"/>
       <argument>/home/mister_d/Bureau/transfert/public</argument>
       <argument>dev</argument>
-      <argument>/home/mister_d/Bureau/transfert/var/cache</argument>
+      <argument>/home/mister_d/Bureau/transfert</argument>
       <call method="setName">
         <argument>server:start</argument>
       </call>
     </service>
     <service id="web_server.command.server_stop" class="Symfony\Bundle\WebServerBundle\Command\ServerStopCommand" public="false">
       <tag name="console.command" command="server:stop"/>
-      <argument>/home/mister_d/Bureau/transfert/var/cache</argument>
+      <argument>/home/mister_d/Bureau/transfert</argument>
       <call method="setName">
         <argument>server:stop</argument>
       </call>
     </service>
     <service id="web_server.command.server_status" class="Symfony\Bundle\WebServerBundle\Command\ServerStatusCommand" public="false">
       <tag name="console.command" command="server:status"/>
-      <argument>/home/mister_d/Bureau/transfert/var/cache</argument>
+      <argument>/home/mister_d/Bureau/transfert</argument>
       <call method="setName">
         <argument>server:status</argument>
       </call>
@@ -4764,30 +4772,12 @@
         <argument key="validator" type="service" id="validator"/>
       </argument>
     </service>
-    <service id=".service_locator.JfrEn5y" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="compteRepository" type="service" id="App\Repository\CompteRepository"/>
-      </argument>
-    </service>
     <service id=".service_locator.7zWnKy7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
         <argument key="serializer" type="service" id="serializer"/>
         <argument key="validator" type="service" id="validator"/>
-      </argument>
-    </service>
-    <service id=".service_locator.M30T2zO" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="compte" type="service" id=".errored..service_locator.M30T2zO.App\Entity\Compte"/>
-      </argument>
-    </service>
-    <service id=".service_locator.ZIsCxOI" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
     <service id=".service_locator.kCjFVm1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4799,22 +4789,16 @@
         <argument key="validateur" type="service" id="validator"/>
       </argument>
     </service>
-    <service id=".service_locator.Y3_3hZC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.a6weGgi" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AuthentificationController::register" type="service" id=".service_locator.H3qnu8f"/>
-        <argument key="App\Controller\CompteController::edit" type="service" id=".service_locator.M30T2zO"/>
-        <argument key="App\Controller\CompteController::index" type="service" id=".service_locator.JfrEn5y"/>
         <argument key="App\Controller\CompteController::new" type="service" id=".service_locator.7zWnKy7"/>
-        <argument key="App\Controller\CompteController::show" type="service" id=".service_locator.M30T2zO"/>
-        <argument key="App\Controller\PartenaireController::Add" type="service" id=".service_locator.ZIsCxOI"/>
+        <argument key="App\Controller\PartenaireController::Add" type="service" id=".service_locator.7zWnKy7"/>
         <argument key="App\Controller\PartenaireController::modif" type="service" id=".service_locator.kCjFVm1"/>
         <argument key="App\Controller\AuthentificationController:register" type="service" id=".service_locator.H3qnu8f"/>
-        <argument key="App\Controller\CompteController:edit" type="service" id=".service_locator.M30T2zO"/>
-        <argument key="App\Controller\CompteController:index" type="service" id=".service_locator.JfrEn5y"/>
         <argument key="App\Controller\CompteController:new" type="service" id=".service_locator.7zWnKy7"/>
-        <argument key="App\Controller\CompteController:show" type="service" id=".service_locator.M30T2zO"/>
-        <argument key="App\Controller\PartenaireController:Add" type="service" id=".service_locator.ZIsCxOI"/>
+        <argument key="App\Controller\PartenaireController:Add" type="service" id=".service_locator.7zWnKy7"/>
         <argument key="App\Controller\PartenaireController:modif" type="service" id=".service_locator.kCjFVm1"/>
       </argument>
     </service>
@@ -5080,12 +5064,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.Y3_3hZC"/>
+      <argument type="service" id=".service_locator.a6weGgi"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.Y3_3hZC"/>
+      <argument type="service" id=".service_locator.a6weGgi"/>
     </service>
     <service id="api_platform.swagger.normalizer.api_gateway.inner" class="ApiPlatform\Core\Swagger\Serializer\DocumentationNormalizer" public="false">
       <argument type="service" id="api_platform.metadata.resource.metadata_factory.cached"/>
@@ -5122,7 +5106,6 @@
       <argument type="service" id="api_platform.metadata.property.metadata_factory.cached"/>
       <argument type="service" id="api_platform.path_segment_name_generator.underscore"/>
     </service>
-    <service id=".errored..service_locator.M30T2zO.App\Entity\Compte" class="App\Entity\Compte"/>
     <service id=".errored..service_locator.kCjFVm1.App\Entity\Partenaire" class="App\Entity\Partenaire"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.A1Bx0QA"/>
@@ -5434,7 +5417,7 @@
     <service id="lexik_jwt_authentication.encoder" alias="lexik_jwt_authentication.encoder.lcobucci" public="true"/>
     <service id="Lexik\Bundle\JWTAuthenticationBundle\Encoder\JWTEncoderInterface" alias="lexik_jwt_authentication.encoder.lcobucci"/>
     <service id="lexik_jwt_authentication.key_loader" alias="lexik_jwt_authentication.key_loader.raw" public="true"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.Y3_3hZC"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.a6weGgi"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="api_platform.name_converter" alias="serializer.name_converter.metadata_aware"/>

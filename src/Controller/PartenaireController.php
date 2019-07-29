@@ -13,16 +13,14 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-/**
-* @Route("/api")
-*/
+
 class PartenaireController extends AbstractController
 {
   
 /**
 * @Route ("/ajoutpar",name="ajoutpar" ,methods={"POST"})
 */
-public function Add(Request $request, EntityManagerInterface $entityManager){
+public function Add(Request $request, EntityManagerInterface $entityManager,SerializerInterface $serializer, ValidatorInterface $validator ){
     $valeurs = json_decode($request->getContent());
     if(isset($valeurs->nomEntreprise,$valeurs->ninea,$valeurs->adresse,$valeurs->raisonSocilale,$valeurs->email,$valeurs->numeroCompte)){
         $partenaire= new Partenaire();
@@ -32,27 +30,36 @@ public function Add(Request $request, EntityManagerInterface $entityManager){
         $partenaire->setRaisonSocilale($valeurs->raisonSocilale);
         $partenaire->setEmail($valeurs->email);
         $partenaire->setNumeroCompte($valeurs->numeroCompte);
-        $user = $this->getDoctrine()->getRepository(Utilisateur::class)->find($valeurs->utilisateur);
+        $user = $entityManager->getRepository(Utilisateur::class)->find($valeurs->utilisateur);
         $partenaire->setUtilisateur($user);
         $partenaire->setMontantCompte($valeurs->montantCompte);
-
         $entityManager->persist($partenaire);
         $entityManager->flush();
-         
-        $datas= [
+        
+        $errors = $validator->validate($partenaire);
+
+
+        if(count($errors))
+        {
+            $errors = $serializer->serialize($errors,'json');  
+            $datas= [
+                
+                'status' => 500,
+                'message' => 'erreur '
+            ];
+            return new JsonResponse($datas, 500);
+            
            
+        }
+        $datas= [
+            
             'status' => 201,
             'message' => 'Partenaire enregistré'
             ];
             return new JsonResponse($datas, 201);
-
+       
         }
-        $datas= [
-                
-            'status' => 500,
-            'message' => 'erreur '
-        ];
-        return new JsonResponse($datas, 500);
+        
     }
 
     /**
@@ -87,7 +94,7 @@ public function Add(Request $request, EntityManagerInterface $entityManager){
         $entityManager->flush();
         $data = [
             'statuse' => 200,
-            'messages' => 'Le téléphone a bien été mis à jour'
+            'messages' => 'Les données partenaire ont bien étés mises à jour'
         ];
         return new JsonResponse($data);
     }
