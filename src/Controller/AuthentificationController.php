@@ -66,17 +66,15 @@ class AuthentificationController extends AbstractController
            $data = [
             'status' => 201,
             'message' => 'L\'utilisateur a été créé'
-        ];
-        return new JsonResponse($data, 201);
-        }
+            ];
+            return new JsonResponse($data, 201);
+            }
         
         $data = [
             'status' => 500,
             'message' => 'Vous devez renseigner les clés username et password'
         ];
-        return new JsonResponse($data, 500);
-
-      
+        return new JsonResponse($data, 500);    
     }
 
     /**
@@ -107,7 +105,6 @@ class AuthentificationController extends AbstractController
                 'Content-Type' => 'application/json'
             ]);
         }
-
         $entityManager->flush();
         $data = [
             'statuse' => 200,
@@ -122,11 +119,21 @@ class AuthentificationController extends AbstractController
      */
     public function login(Request $request)
     {
-        $user = $this->getUser();
+        $valueUser = new Utilisateur();
+        $valuePart = new Partenaire();
 
-        return $this->json([
-            'username' => $user->getUsername(),
-            'roles'=> $user->getRoles()
-        ]);
+        if($valueUser->getStatut() == "débloqué" || $valuePart->getStatut() == "débloqué"){
+            $user = $this->getUser();
+            return $this->json([
+                'username' => $user->getUsername(),
+                'roles'=> $user->getRoles()
+            ]);
+        }
+        $data = [
+            'erreur' => 400,
+            'messages' => 'Votre compte a été bloqué'
+        ];
+        return new JsonResponse($data);
+       
     }
 }

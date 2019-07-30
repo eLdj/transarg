@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerPzXAXtB;
+namespace ContainerOKFPLfc;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -709,9 +709,6 @@ class srcApp_KernelDevDebugContainer extends Container
         $instance->addListener('kernel.request', [0 => function () {
             return ($this->privates['fos_rest.body_listener'] ?? $this->getFosRest_BodyListenerService());
         }, 1 => 'onKernelRequest'], 10);
-        $instance->addListener('kernel.exception', [0 => function () {
-            return ($this->privates['App\\EventSubscriber\\ExeptionSubscriber'] ?? ($this->privates['App\\EventSubscriber\\ExeptionSubscriber'] = new \App\EventSubscriber\ExeptionSubscriber()));
-        }, 1 => 'onKernelException'], 0);
         $instance->addListener('kernel.response', [0 => function () {
             return ($this->privates['response_listener'] ?? ($this->privates['response_listener'] = new \Symfony\Component\HttpKernel\EventListener\ResponseListener('UTF-8')));
         }, 1 => 'onKernelResponse'], 0);

@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class PartenaireControllerTest extends WebTestCase
 {
-    public function testAddPartenaire()
+    public function testAddPartenaireok()
     {
         $client = static::createClient();
         $crawler = $client->request('POST', '/ajoutpar',[],[],
