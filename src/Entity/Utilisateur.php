@@ -70,7 +70,7 @@ class Utilisateur implements UserInterface
     private $partenaire;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Statut", inversedBy="utilisateurs")
+     * @ORM\Column(type="string", length=60)
      */
     private $statut;
 
@@ -229,12 +229,12 @@ class Utilisateur implements UserInterface
         return $this;
     }
 
-    public function getStatut(): ?Statut
+    public function getStatut(): ?string
     {
         return $this->statut;
     }
 
-    public function setStatut(?Statut $statut): self
+    public function setStatut(string $statut): self
     {
         $this->statut = $statut;
 

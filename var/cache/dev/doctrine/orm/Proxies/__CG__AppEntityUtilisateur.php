@@ -411,7 +411,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getStatut(): ?\App\Entity\Statut
+    public function getStatut(): ?string
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStatut', []);
@@ -422,7 +422,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setStatut(?\App\Entity\Statut $statut): \App\Entity\Utilisateur
+    public function setStatut(string $statut): \App\Entity\Utilisateur
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStatut', [$statut]);

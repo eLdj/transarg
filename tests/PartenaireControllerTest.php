@@ -11,10 +11,19 @@ class PartenaireControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('POST', '/ajoutpar',[],[],
         ['CONTENT_TYPE'=>"application/json"],
-        '{"nomEntreprise": "SAGOLDi","ninea": "bm544","adresse": "guediawaye","raisonSocilale": "SARL","email": "gue@gmail.com","numeroCompte": 1234569,"utilisateur":2,"montantCompte": 500000 }');
+        '{
+            "nomEntreprise":"test1",
+            "ninea":"E50test",
+            "adresse":"test",
+            "raisonSocilale":"SARL",
+            "email":"test1@test1",
+            "numeroCompte":1235452,
+            "utilisateur":1,
+            "montantCompte":50000,
+            "statut":"débloqué"
+        }');
         $rep=$client->getResponse();
             var_dump($rep);
-     
        $this->assertSame(201,$client->getResponse()->getStatusCode());
     }
 }

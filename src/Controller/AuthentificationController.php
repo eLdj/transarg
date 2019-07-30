@@ -42,8 +42,7 @@ class AuthentificationController extends AbstractController
            $profil=$this->getDoctrine()->getRepository(Profil::class)->find($values->profil);              
            $user->setProfil($profil); 
            $user->setRoles(['ROLE_SUPERUSER']);
-           $statut = $this->getDoctrine()->getRepository(Statut::class)->find($values->statut);
-           $user->setStatut($statut);     
+           $user->setStatut($values->statut);     
            $user->setUsername($values->username);
            $user->setPassword($passwordEncoder->encodePassword($user, $values->password));
            $partenaire = $this->getDoctrine()->getRepository(Partenaire::class)->find($values->partenaire);
@@ -79,6 +78,44 @@ class AuthentificationController extends AbstractController
 
       
     }
+
+    /**
+     * @Route("/modifuser/{id}", name="modif_user",methods={"PUT"})
+     */
+    public function modif(Request $request, SerializerInterface $serializer, Utilisateur $utilisateur, ValidatorInterface $validateur, EntityManagerInterface $entityManager)
+    {
+        $partenaireModif=$entityManager->getRepository(Utilisateur::class)->find($utilisateur->getId());
+
+        $donnee=json_decode($request->getContent());
+
+        foreach($donnee as $cle=>$valeur)
+        {
+            if($cle && !empty($valeur))
+            {
+                $nom = ucfirst($cle);
+                $setter = 'set'.$nom;
+                $partenaireModif->$setter($valeur);
+            }
+        }
+
+        $errors = $validateur->validate($partenaireModif);
+        
+        if(count($errors))
+        {
+            $errors = $serializer->serialize($errors, 'json');
+            return new Response($errors, 500, [
+                'Content-Type' => 'application/json'
+            ]);
+        }
+
+        $entityManager->flush();
+        $data = [
+            'statuse' => 200,
+            'messages' => 'Les données partenaire ont bien étés mises à jour'
+        ];
+        return new JsonResponse($data);
+    }
+
     /**
      * @Route("/connect_check",name="connect",methods={"POST","GET"})
      * @return JsonResponse

@@ -1,25 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Project Test Suite" tests="1" assertions="0" errors="1" failures="0" skipped="0" time="0.330261">
-    <testsuite name="App\Tests\PartenaireControllerTest" file="/home/mister_d/Bureau/transfert/tests/PartenaireControllerTest.php" tests="1" assertions="0" errors="1" failures="0" skipped="0" time="0.330261">
-      <testcase name="testAddPartenaire" class="App\Tests\PartenaireControllerTest" classname="App.Tests.PartenaireControllerTest" file="/home/mister_d/Bureau/transfert/tests/PartenaireControllerTest.php" line="9" assertions="0" time="0.330261">
-        <error type="Error">App\Tests\PartenaireControllerTest::testAddPartenaire
-Error: Call to undefined method Doctrine\DBAL\Exception\ConnectionException::getStatusCode()
-
-/home/mister_d/Bureau/transfert/src/EventSubscriber/ExeptionSubscriber.php:15
-/home/mister_d/Bureau/transfert/vendor/symfony/event-dispatcher/Debug/WrappedListener.php:126
-/home/mister_d/Bureau/transfert/vendor/symfony/event-dispatcher/EventDispatcher.php:258
-/home/mister_d/Bureau/transfert/vendor/symfony/event-dispatcher/EventDispatcher.php:233
-/home/mister_d/Bureau/transfert/vendor/symfony/event-dispatcher/EventDispatcher.php:73
-/home/mister_d/Bureau/transfert/vendor/symfony/event-dispatcher/Debug/TraceableEventDispatcher.php:168
-/home/mister_d/Bureau/transfert/vendor/symfony/http-kernel/HttpKernel.php:222
-/home/mister_d/Bureau/transfert/vendor/symfony/http-kernel/HttpKernel.php:79
-/home/mister_d/Bureau/transfert/vendor/symfony/http-kernel/Kernel.php:198
-/home/mister_d/Bureau/transfert/vendor/symfony/http-kernel/Client.php:68
-/home/mister_d/Bureau/transfert/vendor/symfony/framework-bundle/Client.php:131
-/home/mister_d/Bureau/transfert/vendor/symfony/browser-kit/Client.php:407
-/home/mister_d/Bureau/transfert/tests/PartenaireControllerTest.php:14
-</error>
+  <testsuite name="Project Test Suite" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.653799">
+    <testsuite name="App\Tests\PartenaireControllerTest" file="/home/mister_d/Bureau/transfert/tests/PartenaireControllerTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.653799">
+      <testcase name="testAddPartenaire" class="App\Tests\PartenaireControllerTest" classname="App.Tests.PartenaireControllerTest" file="/home/mister_d/Bureau/transfert/tests/PartenaireControllerTest.php" line="9" assertions="1" time="0.653799">
+        <system-out>/home/mister_d/Bureau/transfert/tests/PartenaireControllerTest.php:26:
+class Symfony\Component\HttpFoundation\JsonResponse#7893 (9) {
+  protected $data =&gt;
+  string(53) "{"status":201,"message":"Partenaire enregistr\u00e9"}"
+  protected $callback =&gt;
+  NULL
+  protected $encodingOptions =&gt;
+  int(15)
+  public $headers =&gt;
+  class Symfony\Component\HttpFoundation\ResponseHeaderBag#7857 (5) {
+    protected $computedCacheControl =&gt;
+    array(2) {
+      'no-cache' =&gt;
+      bool(true)
+      'private' =&gt;
+      bool(true)
+    }
+    protected $cookies =&gt;
+    array(0) {
+    }
+    protected $headerNames =&gt;
+    array(5) {
+      'cache-control' =&gt;
+      string(13) "Cache-Control"
+      'date' =&gt;
+      string(4) "Date"
+      'content-type' =&gt;
+      string(12) "Content-Type"
+      'link' =&gt;
+      string(4) "Link"
+      'x-robots-tag' =&gt;
+      string(12) "X-Robots-Tag"
+    }
+    protected $headers =&gt;
+    array(5) {
+      'cache-control' =&gt;
+      array(1) {
+        ...
+      }
+      'date' =&gt;
+      array(1) {
+        ...
+      }
+      'content-type' =&gt;
+      array(1) {
+        ...
+      }
+      'link' =&gt;
+      array(1) {
+        ...
+      }
+      'x-robots-tag' =&gt;
+      array(1) {
+        ...
+      }
+    }
+    protected $cacheControl =&gt;
+    array(0) {
+    }
+  }
+  protected $content =&gt;
+  string(53) "{"status":201,"message":"Partenaire enregistr\u00e9"}"
+  protected $version =&gt;
+  string(3) "1.1"
+  protected $statusCode =&gt;
+  int(201)
+  protected $statusText =&gt;
+  string(7) "Created"
+  protected $charset =&gt;
+  string(5) "UTF-8"
+}
+</system-out>
       </testcase>
     </testsuite>
   </testsuite>

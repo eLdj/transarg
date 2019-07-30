@@ -18,6 +18,7 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                     'raisonSocilale',
                     'email',
                     'numeroCompte',
+                    'statut',
                     'utilisateurs',
                     'compte',
                     'utilisateur',

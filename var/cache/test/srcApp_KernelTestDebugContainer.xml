@@ -417,9 +417,6 @@
         <argument type="service" id=".service_locator.CDOTD6..App\Controller\PartenaireController"/>
       </call>
     </service>
-    <service id="App\EventSubscriber\ExeptionSubscriber" class="App\EventSubscriber\ExeptionSubscriber" autowire="true" autoconfigure="true">
-      <tag name="kernel.event_subscriber"/>
-    </service>
     <service id="App\Form\CompteType" class="App\Form\CompteType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -432,10 +429,6 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\ProfilRepository" class="App\Repository\ProfilRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
-    <service id="App\Repository\StatutRepository" class="App\Repository\StatutRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -1004,12 +997,10 @@
         <argument key="ApiPlatform\Core\Security\ResourceAccessCheckerInterface" type="service" id="api_platform.security.resource_access_checker" on-invalid="ignore_uninitialized"/>
         <argument key="ApiPlatform\Core\Serializer\SerializerContextBuilderInterface" type="service" id="api_platform.serializer.context_builder.filter" on-invalid="ignore_uninitialized"/>
         <argument key="ApiPlatform\Core\Validator\ValidatorInterface" type="service" id="api_platform.validator" on-invalid="ignore_uninitialized"/>
-        <argument key="App\EventSubscriber\ExeptionSubscriber" type="service" id="App\EventSubscriber\ExeptionSubscriber" on-invalid="ignore_uninitialized"/>
         <argument key="App\Form\CompteType" type="service" id="App\Form\CompteType" on-invalid="ignore_uninitialized"/>
         <argument key="App\Repository\CompteRepository" type="service" id="App\Repository\CompteRepository" on-invalid="ignore_uninitialized"/>
         <argument key="App\Repository\PartenaireRepository" type="service" id="App\Repository\PartenaireRepository" on-invalid="ignore_uninitialized"/>
         <argument key="App\Repository\ProfilRepository" type="service" id="App\Repository\ProfilRepository" on-invalid="ignore_uninitialized"/>
-        <argument key="App\Repository\StatutRepository" type="service" id="App\Repository\StatutRepository" on-invalid="ignore_uninitialized"/>
         <argument key="App\Repository\UtilisateurRepository" type="service" id="App\Repository\UtilisateurRepository" on-invalid="ignore_uninitialized"/>
         <argument key="Doctrine\Common\Annotations\Reader" type="service" id="annotations.cached_reader" on-invalid="ignore_uninitialized"/>
         <argument key="Doctrine\Common\Persistence\ManagerRegistry" type="service" id="doctrine" on-invalid="ignore_uninitialized"/>
@@ -1264,7 +1255,7 @@
         <argument key="api_platform.validator" type="service" id="api_platform.validator" on-invalid="ignore_uninitialized"/>
         <argument key="argument_metadata_factory" type="service" id="argument_metadata_factory" on-invalid="ignore_uninitialized"/>
         <argument key="argument_resolver" type="service" id="debug.argument_resolver" on-invalid="ignore_uninitialized"/>
-        <argument key="argument_resolver.controller_locator" type="service" id=".service_locator.a6weGgi" on-invalid="ignore_uninitialized"/>
+        <argument key="argument_resolver.controller_locator" type="service" id=".service_locator.MiuJmen" on-invalid="ignore_uninitialized"/>
         <argument key="argument_resolver.default" type="service" id="debug.argument_resolver.default" on-invalid="ignore_uninitialized"/>
         <argument key="argument_resolver.not_tagged_controller" type="service" id="debug.argument_resolver.not_tagged_controller" on-invalid="ignore_uninitialized"/>
         <argument key="argument_resolver.request" type="service" id="debug.argument_resolver.request" on-invalid="ignore_uninitialized"/>
@@ -2083,14 +2074,6 @@
           <argument>onKernelRequest</argument>
         </argument>
         <argument>10</argument>
-      </call>
-      <call method="addListener">
-        <argument>kernel.exception</argument>
-        <argument type="collection">
-          <argument type="service" id="App\EventSubscriber\ExeptionSubscriber"/>
-          <argument>onKernelException</argument>
-        </argument>
-        <argument>0</argument>
       </call>
       <call method="addListener">
         <argument>kernel.response</argument>
@@ -3879,7 +3862,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.UcwsJK5"/>
+      <argument type="service" id=".service_locator.z1IBu.S"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5137,8 +5120,6 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PartenaireController" class="App\Controller\PartenaireController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PartenaireController" class="App\Controller\PartenaireController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\PartenaireController" class="App\Controller\PartenaireController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.App\EventSubscriber\ExeptionSubscriber" class="App\EventSubscriber\ExeptionSubscriber" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\EventSubscriber\ExeptionSubscriber" class="App\EventSubscriber\ExeptionSubscriber" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CompteType" class="App\Form\CompteType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CompteType" class="App\Form\CompteType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CompteRepository" class="App\Repository\CompteRepository" autowire="true" abstract="true"/>
@@ -5147,8 +5128,6 @@
     <service id=".abstract.instanceof.App\Repository\PartenaireRepository" class="App\Repository\PartenaireRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProfilRepository" class="App\Repository\ProfilRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ProfilRepository" class="App\Repository\ProfilRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\StatutRepository" class="App\Repository\StatutRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\StatutRepository" class="App\Repository\StatutRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UtilisateurRepository" class="App\Repository\UtilisateurRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UtilisateurRepository" class="App\Repository\UtilisateurRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.H3qnu8f" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5158,6 +5137,15 @@
         <argument key="passwordEncoder" type="service" id="security.user_password_encoder.generic"/>
         <argument key="serializer" type="service" id="serializer"/>
         <argument key="validator" type="service" id="validator"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Xe13BTv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="serializer" type="service" id="serializer"/>
+        <argument key="utilisateur" type="service" id=".errored..service_locator.Xe13BTv.App\Entity\Utilisateur"/>
+        <argument key="validateur" type="service" id="validator"/>
       </argument>
     </service>
     <service id=".service_locator.7zWnKy7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5177,13 +5165,15 @@
         <argument key="validateur" type="service" id="validator"/>
       </argument>
     </service>
-    <service id=".service_locator.a6weGgi" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.MiuJmen" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\AuthentificationController::modif" type="service" id=".service_locator.Xe13BTv"/>
         <argument key="App\Controller\AuthentificationController::register" type="service" id=".service_locator.H3qnu8f"/>
         <argument key="App\Controller\CompteController::new" type="service" id=".service_locator.7zWnKy7"/>
         <argument key="App\Controller\PartenaireController::Add" type="service" id=".service_locator.7zWnKy7"/>
         <argument key="App\Controller\PartenaireController::modif" type="service" id=".service_locator.kCjFVm1"/>
+        <argument key="App\Controller\AuthentificationController:modif" type="service" id=".service_locator.Xe13BTv"/>
         <argument key="App\Controller\AuthentificationController:register" type="service" id=".service_locator.H3qnu8f"/>
         <argument key="App\Controller\CompteController:new" type="service" id=".service_locator.7zWnKy7"/>
         <argument key="App\Controller\PartenaireController:Add" type="service" id=".service_locator.7zWnKy7"/>
@@ -5280,13 +5270,12 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.UcwsJK5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.z1IBu.S" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CompteRepository" type="service" id="App\Repository\CompteRepository"/>
         <argument key="App\Repository\PartenaireRepository" type="service" id="App\Repository\PartenaireRepository"/>
         <argument key="App\Repository\ProfilRepository" type="service" id="App\Repository\ProfilRepository"/>
-        <argument key="App\Repository\StatutRepository" type="service" id="App\Repository\StatutRepository"/>
         <argument key="App\Repository\UtilisateurRepository" type="service" id="App\Repository\UtilisateurRepository"/>
       </argument>
     </service>
@@ -5458,12 +5447,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.a6weGgi"/>
+      <argument type="service" id=".service_locator.MiuJmen"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.a6weGgi"/>
+      <argument type="service" id=".service_locator.MiuJmen"/>
     </service>
     <service id="api_platform.swagger.normalizer.api_gateway.inner" class="ApiPlatform\Core\Swagger\Serializer\DocumentationNormalizer" public="false">
       <argument type="service" id="api_platform.metadata.resource.metadata_factory.cached"/>
@@ -5500,6 +5489,7 @@
       <argument type="service" id="api_platform.metadata.property.metadata_factory.cached"/>
       <argument type="service" id="api_platform.path_segment_name_generator.underscore"/>
     </service>
+    <service id=".errored..service_locator.Xe13BTv.App\Entity\Utilisateur" class="App\Entity\Utilisateur"/>
     <service id=".errored..service_locator.kCjFVm1.App\Entity\Partenaire" class="App\Entity\Partenaire"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.2tAGzOP"/>
@@ -5767,7 +5757,7 @@
     <service id="lexik_jwt_authentication.encoder" alias="lexik_jwt_authentication.encoder.lcobucci" public="true"/>
     <service id="Lexik\Bundle\JWTAuthenticationBundle\Encoder\JWTEncoderInterface" alias="lexik_jwt_authentication.encoder.lcobucci"/>
     <service id="lexik_jwt_authentication.key_loader" alias="lexik_jwt_authentication.key_loader.raw" public="true"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.a6weGgi"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.MiuJmen"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="api_platform.name_converter" alias="serializer.name_converter.metadata_aware"/>

@@ -70,6 +70,13 @@ class Partenaire
      */
     private $montantCompte;
 
+
+    /**
+     * @ORM\Column(type="string", length=60)
+     */
+    private $statut;
+
+
     public function __construct()
     {
         $this->utilisateurs = new ArrayCollection();
@@ -148,6 +155,17 @@ class Partenaire
     public function setNumeroCompte(int $numeroCompte): self
     {
         $this->numeroCompte = $numeroCompte;
+
+        return $this;
+    }
+    public function getStatut(): ?string
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(string $statut): self
+    {
+        $this->statut = $statut;
 
         return $this;
     }

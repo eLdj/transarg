@@ -33,6 +33,7 @@ public function Add(Request $request, EntityManagerInterface $entityManager,Seri
         $user = $entityManager->getRepository(Utilisateur::class)->find($valeurs->utilisateur);
         $partenaire->setUtilisateur($user);
         $partenaire->setMontantCompte($valeurs->montantCompte);
+        $partenaire->setStatut($valeurs->statut);
         $entityManager->persist($partenaire);
         $entityManager->flush();
         

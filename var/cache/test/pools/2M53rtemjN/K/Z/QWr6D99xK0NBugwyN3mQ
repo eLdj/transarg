@@ -19,12 +19,6 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
             'writable' => [
                 true,
             ],
-            'readableLink' => [
-                false,
-            ],
-            'writableLink' => [
-                false,
-            ],
             'required' => [
                 false,
             ],
@@ -37,13 +31,10 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
         ],
         'Symfony\\Component\\PropertyInfo\\Type' => [
             'builtinType' => [
-                1 => 'object',
+                1 => 'string',
             ],
             'nullable' => [
-                1 => true,
-            ],
-            'class' => [
-                1 => 'App\\Entity\\Statut',
+                1 => false,
             ],
             'collection' => [
                 1 => false,
