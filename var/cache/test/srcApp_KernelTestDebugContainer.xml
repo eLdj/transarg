@@ -20,6 +20,7 @@
       <parameter key="FOSRestBundle">FOS\RestBundle\FOSRestBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="LexikJWTAuthenticationBundle">Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -65,6 +66,10 @@
       <parameter key="LexikJWTAuthenticationBundle" type="collection">
         <parameter key="path">/home/mister_d/Bureau/transfertok/vendor/lexik/jwt-authentication-bundle</parameter>
         <parameter key="namespace">Lexik\Bundle\JWTAuthenticationBundle</parameter>
+      </parameter>
+      <parameter key="DoctrineFixturesBundle" type="collection">
+        <parameter key="path">/home/mister_d/Bureau/transfertok/vendor/doctrine/doctrine-fixtures-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -416,6 +421,9 @@
       <call method="setContainer">
         <argument type="service" id=".service_locator.CDOTD6..App\Controller\PartenaireController"/>
       </call>
+    </service>
+    <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
     </service>
     <service id="App\Form\CompteType" class="App\Form\CompteType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
@@ -997,6 +1005,7 @@
         <argument key="ApiPlatform\Core\Security\ResourceAccessCheckerInterface" type="service" id="api_platform.security.resource_access_checker" on-invalid="ignore_uninitialized"/>
         <argument key="ApiPlatform\Core\Serializer\SerializerContextBuilderInterface" type="service" id="api_platform.serializer.context_builder.filter" on-invalid="ignore_uninitialized"/>
         <argument key="ApiPlatform\Core\Validator\ValidatorInterface" type="service" id="api_platform.validator" on-invalid="ignore_uninitialized"/>
+        <argument key="App\DataFixtures\AppFixtures" type="service" id="App\DataFixtures\AppFixtures" on-invalid="ignore_uninitialized"/>
         <argument key="App\Form\CompteType" type="service" id="App\Form\CompteType" on-invalid="ignore_uninitialized"/>
         <argument key="App\Repository\CompteRepository" type="service" id="App\Repository\CompteRepository" on-invalid="ignore_uninitialized"/>
         <argument key="App\Repository\PartenaireRepository" type="service" id="App\Repository\PartenaireRepository" on-invalid="ignore_uninitialized"/>
@@ -1367,6 +1376,8 @@
         <argument key="doctrine.dbal.logger.chain.default" type="service" id="doctrine.dbal.logger.chain.default" on-invalid="ignore_uninitialized"/>
         <argument key="doctrine.dbal.logger.profiling.default" type="service" id="doctrine.dbal.logger.profiling.default" on-invalid="ignore_uninitialized"/>
         <argument key="doctrine.ensure_production_settings_command" type="service" id="doctrine.ensure_production_settings_command" on-invalid="ignore_uninitialized"/>
+        <argument key="doctrine.fixtures.loader" type="service" id="doctrine.fixtures.loader" on-invalid="ignore_uninitialized"/>
+        <argument key="doctrine.fixtures_load_command" type="service" id="doctrine.fixtures_load_command" on-invalid="ignore_uninitialized"/>
         <argument key="doctrine.generate_entities_command" type="service" id="doctrine.generate_entities_command" on-invalid="ignore_uninitialized"/>
         <argument key="doctrine.mapping_convert_command" type="service" id="doctrine.mapping_convert_command" on-invalid="ignore_uninitialized"/>
         <argument key="doctrine.mapping_import_command" type="service" id="doctrine.mapping_import_command" on-invalid="ignore_uninitialized"/>
@@ -1521,6 +1532,7 @@
         <argument key="security.authentication.guard_handler" type="service" id="security.authentication.guard_handler" on-invalid="ignore_uninitialized"/>
         <argument key="security.authentication.listener.anonymous" type="service" id="security.authentication.listener.anonymous" on-invalid="ignore_uninitialized"/>
         <argument key="security.authentication.listener.anonymous.api" type="service" id="security.authentication.listener.anonymous.api" on-invalid="ignore_uninitialized"/>
+        <argument key="security.authentication.listener.basic.api" type="service" id="security.authentication.listener.basic.api" on-invalid="ignore_uninitialized"/>
         <argument key="security.authentication.listener.guard.api" type="service" id="security.authentication.listener.guard.api" on-invalid="ignore_uninitialized"/>
         <argument key="security.authentication.listener.json.api" type="service" id="security.authentication.listener.json.api" on-invalid="ignore_uninitialized"/>
         <argument key="security.authentication.manager" type="service" id="security.authentication.manager" on-invalid="ignore_uninitialized"/>
@@ -3566,6 +3578,7 @@
       <argument type="collection">
         <argument>guard</argument>
         <argument>json_login</argument>
+        <argument>http_basic</argument>
         <argument>anonymous</argument>
       </argument>
       <argument>null</argument>
@@ -3628,6 +3641,16 @@
         <argument type="service" id="security.authentication.session_strategy_noop"/>
       </call>
     </service>
+    <service id="security.authentication.listener.basic.api" class="Symfony\Component\Security\Http\Firewall\BasicAuthenticationListener" public="false">
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument>api</argument>
+      <argument type="service" id="lexik_jwt_authentication.security.guard.jwt_token_authenticator"/>
+      <argument type="service" id="logger" on-invalid="null"/>
+      <call method="setSessionAuthenticationStrategy">
+        <argument type="service" id="security.authentication.session_strategy_noop"/>
+      </call>
+    </service>
     <service id="security.authentication.listener.anonymous.api" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
       <argument>%container.build_hash%</argument>
@@ -3653,6 +3676,7 @@
         <argument type="service" id="security.channel_listener"/>
         <argument type="service" id="security.authentication.listener.guard.api"/>
         <argument type="service" id="security.authentication.listener.json.api"/>
+        <argument type="service" id="security.authentication.listener.basic.api"/>
         <argument type="service" id="security.authentication.listener.anonymous.api"/>
         <argument type="service" id="security.access_listener"/>
       </argument>
@@ -5111,6 +5135,25 @@
     <service id="lexik_jwt_authentication.security.jwt_user_provider" class="Lexik\Bundle\JWTAuthenticationBundle\Security\User\JWTUserProvider" public="false">
       <argument></argument>
     </service>
+    <service id="doctrine.fixtures_load_command" class="Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand">
+      <tag name="console.command" command="doctrine:fixtures:load"/>
+      <argument type="service" id="doctrine.fixtures.loader"/>
+      <argument type="service" id="doctrine"/>
+      <call method="setName">
+        <argument>doctrine:fixtures:load</argument>
+      </call>
+    </service>
+    <service id="doctrine.fixtures.loader" class="Doctrine\Bundle\FixturesBundle\Loader\SymfonyFixturesLoader" public="false">
+      <argument type="service" id="service_container"/>
+      <call method="addFixtures">
+        <argument type="collection">
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\AppFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+        </argument>
+      </call>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AuthentificationController" class="App\Controller\AuthentificationController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AuthentificationController" class="App\Controller\AuthentificationController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AuthentificationController" class="App\Controller\AuthentificationController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5120,6 +5163,8 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PartenaireController" class="App\Controller\PartenaireController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PartenaireController" class="App\Controller\PartenaireController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\PartenaireController" class="App\Controller\PartenaireController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CompteType" class="App\Form\CompteType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CompteType" class="App\Form\CompteType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CompteRepository" class="App\Repository\CompteRepository" autowire="true" abstract="true"/>
@@ -5492,7 +5537,7 @@
     <service id=".errored..service_locator.Xe13BTv.App\Entity\Utilisateur" class="App\Entity\Utilisateur"/>
     <service id=".errored..service_locator.kCjFVm1.App\Entity\Partenaire" class="App\Entity\Partenaire"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.2tAGzOP"/>
+      <argument type="service" id=".service_locator.0_FvmF1"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -5536,9 +5581,10 @@
         <argument key="doctrine:mapping:import">doctrine.mapping_import_command</argument>
         <argument key="lexik:jwt:check-config">lexik_jwt_authentication.check_config_command</argument>
         <argument key="lexik:jwt:generate-token">lexik_jwt_authentication.generate_token_command</argument>
+        <argument key="doctrine:fixtures:load">doctrine.fixtures_load_command</argument>
       </argument>
     </service>
-    <service id=".service_locator.2tAGzOP" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.0_FvmF1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service" id="console.command.about"/>
@@ -5568,6 +5614,7 @@
         <argument key="doctrine.database_drop_command" type="service" id="doctrine.database_drop_command"/>
         <argument key="doctrine.database_import_command" type="service" id="doctrine.database_import_command"/>
         <argument key="doctrine.ensure_production_settings_command" type="service" id="doctrine.ensure_production_settings_command"/>
+        <argument key="doctrine.fixtures_load_command" type="service" id="doctrine.fixtures_load_command"/>
         <argument key="doctrine.generate_entities_command" type="service" id="doctrine.generate_entities_command"/>
         <argument key="doctrine.mapping_convert_command" type="service" id="doctrine.mapping_convert_command"/>
         <argument key="doctrine.mapping_import_command" type="service" id="doctrine.mapping_import_command"/>

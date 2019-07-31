@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1564534860">
-  <project timestamp="1564534860">
+<coverage generated="1564570430">
+  <project timestamp="1564570430">
     <package name="App\Controller">
       <file name="/home/mister_d/Bureau/transfertok/src/Controller/AuthentificationController.php">
         <class name="App\Controller\AuthentificationController" namespace="App\Controller">
@@ -131,6 +131,17 @@
         <line num="97" type="stmt" count="0"/>
         <line num="100" type="stmt" count="0"/>
         <metrics loc="101" ncloc="95" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="38" coveredstatements="19" elements="40" coveredelements="19"/>
+      </file>
+    </package>
+    <package name="App\DataFixtures">
+      <file name="/home/mister_d/Bureau/transfertok/src/DataFixtures/AppFixtures.php">
+        <class name="App\DataFixtures\AppFixtures" namespace="App\DataFixtures">
+          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
+        </class>
+        <line num="10" type="method" name="load" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="15" type="stmt" count="0"/>
+        <line num="16" type="stmt" count="0"/>
+        <metrics loc="17" ncloc="13" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
       </file>
     </package>
     <package name="App\Entity">
@@ -364,7 +375,7 @@
     <package name="App">
       <file name="/home/mister_d/Bureau/transfertok/src/Kernel.php">
         <class name="App\Kernel" namespace="App">
-          <metrics complexity="6" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="23" coveredelements="23"/>
+          <metrics complexity="6" methods="4" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="6" elements="23" coveredelements="8"/>
         </class>
         <line num="18" type="method" name="registerBundles" visibility="public" complexity="3" crap="3" count="1"/>
         <line num="20" type="stmt" count="1"/>
@@ -374,22 +385,22 @@
         <line num="26" type="stmt" count="1"/>
         <line num="28" type="method" name="getProjectDir" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="30" type="stmt" count="1"/>
-        <line num="33" type="method" name="configureContainer" visibility="protected" complexity="1" crap="1" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <line num="37" type="stmt" count="1"/>
-        <line num="39" type="stmt" count="1"/>
-        <line num="40" type="stmt" count="1"/>
-        <line num="41" type="stmt" count="1"/>
-        <line num="42" type="stmt" count="1"/>
-        <line num="43" type="stmt" count="1"/>
-        <line num="45" type="method" name="configureRoutes" visibility="protected" complexity="1" crap="1" count="1"/>
-        <line num="47" type="stmt" count="1"/>
-        <line num="49" type="stmt" count="1"/>
-        <line num="50" type="stmt" count="1"/>
-        <line num="51" type="stmt" count="1"/>
-        <line num="52" type="stmt" count="1"/>
-        <metrics loc="53" ncloc="53" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="23" coveredelements="23"/>
+        <line num="33" type="method" name="configureContainer" visibility="protected" complexity="1" crap="2" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="45" type="method" name="configureRoutes" visibility="protected" complexity="1" crap="2" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <metrics loc="53" ncloc="53" classes="1" methods="4" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="6" elements="23" coveredelements="8"/>
       </file>
     </package>
     <package name="DoctrineMigrations">
@@ -556,6 +567,6 @@
         <metrics loc="50" ncloc="14" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
       </file>
     </package>
-    <metrics files="20" loc="1531" ncloc="1149" classes="20" methods="103" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="320" coveredstatements="60" elements="423" coveredelements="75"/>
+    <metrics files="21" loc="1548" ncloc="1162" classes="21" methods="104" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="322" coveredstatements="47" elements="426" coveredelements="60"/>
   </project>
 </coverage>
