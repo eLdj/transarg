@@ -39,6 +39,8 @@ class CompteController extends AbstractController
            $compte->setDateDepot(new \DateTime());             
            $partenaire = $this->getDoctrine()->getRepository(Partenaire::class)->find($valeurs->partenaire);
            $compte->setPartenaire($partenaire);
+           $caissier = $this->getDoctrine()->getRepository(Compte::class)->find($valeurs->partenaire);
+           $compte->setUtilisateur($caissier);
 
            $errors = $validator->validate($compte);
 

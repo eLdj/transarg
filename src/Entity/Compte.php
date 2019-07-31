@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,6 +21,7 @@ class Compte
 
     /**
      * @ORM\Column(type="integer")
+     *  @Assert\GreaterThan(75000, message="Le dépot doit être égale ou supérieur à 75000")
      */
     private $montant;
 
@@ -32,6 +34,11 @@ class Compte
      * @ORM\OneToOne(targetEntity="App\Entity\Partenaire", inversedBy="compte", cascade={"persist", "remove"})
      */
     private $partenaire;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Utilisateur", inversedBy="comptes")
+     */
+    private $utilisateur;
 
     public function getId(): ?int
     {
@@ -70,6 +77,18 @@ class Compte
     public function setPartenaire(?Partenaire $partenaire): self
     {
         $this->partenaire = $partenaire;
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): self
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }

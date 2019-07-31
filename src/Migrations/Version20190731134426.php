@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190728020647 extends AbstractMigration
+final class Version20190731134426 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,9 @@ final class Version20190728020647 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE utilisateur CHANGE roles roles TINYTEXT NOT NULL COMMENT \'(DC2Type:simple_array)\'');
+        $this->addSql('ALTER TABLE compte ADD utilisateur_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE compte ADD CONSTRAINT FK_CFF65260FB88E14F FOREIGN KEY (utilisateur_id) REFERENCES utilisateur (id)');
+        $this->addSql('CREATE INDEX IDX_CFF65260FB88E14F ON compte (utilisateur_id)');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +32,8 @@ final class Version20190728020647 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE utilisateur CHANGE roles roles JSON NOT NULL');
+        $this->addSql('ALTER TABLE compte DROP FOREIGN KEY FK_CFF65260FB88E14F');
+        $this->addSql('DROP INDEX IDX_CFF65260FB88E14F ON compte');
+        $this->addSql('ALTER TABLE compte DROP utilisateur_id');
     }
 }

@@ -72,7 +72,7 @@ class AuthentificationController extends AbstractController
         
         $data = [
             'status' => 500,
-            'message' => 'Vous devez renseigner les clés username et password'
+            'message' => 'Vous devez renseigner le username et password'
         ];
         return new JsonResponse($data, 500);    
     }
