@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Project Test Suite" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.461099">
-    <testsuite name="App\Tests\PartenaireControllerTest" file="/home/mister_d/Bureau/transfertok/tests/PartenaireControllerTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.461099">
-      <testcase name="testAddPartenaireok" class="App\Tests\PartenaireControllerTest" classname="App.Tests.PartenaireControllerTest" file="/home/mister_d/Bureau/transfertok/tests/PartenaireControllerTest.php" line="9" assertions="1" time="0.461099">
+  <testsuite name="Project Test Suite" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.542988">
+    <testsuite name="App\Tests\PartenaireControllerTest" file="/home/mister_d/Bureau/transfertok/tests/PartenaireControllerTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.542988">
+      <testcase name="testAddPartenaireok" class="App\Tests\PartenaireControllerTest" classname="App.Tests.PartenaireControllerTest" file="/home/mister_d/Bureau/transfertok/tests/PartenaireControllerTest.php" line="9" assertions="1" time="0.542988">
         <system-out>/home/mister_d/Bureau/transfertok/tests/PartenaireControllerTest.php:29:
 class Symfony\Component\HttpFoundation\JsonResponse#7904 (9) {
   protected $data =&gt;

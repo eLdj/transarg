@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1564570430">
-  <project timestamp="1564570430">
+<coverage generated="1564575876">
+  <project timestamp="1564575876">
     <package name="App\Controller">
       <file name="/home/mister_d/Bureau/transfertok/src/Controller/AuthentificationController.php">
         <class name="App\Controller\AuthentificationController" namespace="App\Controller">
