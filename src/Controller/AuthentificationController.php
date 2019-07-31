@@ -79,6 +79,7 @@ class AuthentificationController extends AbstractController
 
     /**
      * @Route("/modifuser/{id}", name="modif_user",methods={"PUT"})
+     * @IsGranted("ROLE_SUPERADMIN")
      */
     public function modif(Request $request, SerializerInterface $serializer, Utilisateur $utilisateur, ValidatorInterface $validateur, EntityManagerInterface $entityManager)
     {

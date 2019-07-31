@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1564493329">
-  <project timestamp="1564493329">
+<coverage generated="1564534860">
+  <project timestamp="1564534860">
     <package name="App\Controller">
-      <file name="/home/mister_d/Bureau/transfert/src/Controller/AuthentificationController.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Controller/AuthentificationController.php">
         <class name="App\Controller\AuthentificationController" namespace="App\Controller">
-          <metrics complexity="9" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="45" coveredstatements="0" elements="48" coveredelements="0"/>
+          <metrics complexity="11" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="50" coveredstatements="0" elements="53" coveredelements="0"/>
         </class>
         <line num="32" type="method" name="register" visibility="public" complexity="3" crap="12" count="0"/>
         <line num="34" type="stmt" count="0"/>
@@ -33,55 +33,60 @@
         <line num="70" type="stmt" count="0"/>
         <line num="74" type="stmt" count="0"/>
         <line num="77" type="stmt" count="0"/>
-        <line num="85" type="method" name="modif" visibility="public" complexity="5" crap="30" count="0"/>
-        <line num="87" type="stmt" count="0"/>
-        <line num="89" type="stmt" count="0"/>
-        <line num="91" type="stmt" count="0"/>
-        <line num="93" type="stmt" count="0"/>
+        <line num="84" type="method" name="modif" visibility="public" complexity="5" crap="30" count="0"/>
+        <line num="86" type="stmt" count="0"/>
+        <line num="88" type="stmt" count="0"/>
+        <line num="90" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <line num="94" type="stmt" count="0"/>
         <line num="95" type="stmt" count="0"/>
         <line num="96" type="stmt" count="0"/>
-        <line num="97" type="stmt" count="0"/>
-        <line num="101" type="stmt" count="0"/>
-        <line num="103" type="stmt" count="0"/>
+        <line num="100" type="stmt" count="0"/>
+        <line num="102" type="stmt" count="0"/>
+        <line num="104" type="stmt" count="0"/>
         <line num="105" type="stmt" count="0"/>
         <line num="106" type="stmt" count="0"/>
-        <line num="107" type="stmt" count="0"/>
+        <line num="109" type="stmt" count="0"/>
         <line num="111" type="stmt" count="0"/>
-        <line num="113" type="stmt" count="0"/>
-        <line num="116" type="stmt" count="0"/>
-        <line num="123" type="method" name="login" visibility="public" complexity="1" crap="2" count="0"/>
-        <line num="125" type="stmt" count="0"/>
+        <line num="114" type="stmt" count="0"/>
+        <line num="121" type="method" name="login" visibility="public" complexity="3" crap="12" count="0"/>
+        <line num="123" type="stmt" count="0"/>
+        <line num="124" type="stmt" count="0"/>
+        <line num="126" type="stmt" count="0"/>
         <line num="127" type="stmt" count="0"/>
         <line num="128" type="stmt" count="0"/>
         <line num="129" type="stmt" count="0"/>
-        <metrics loc="132" ncloc="118" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="45" coveredstatements="0" elements="48" coveredelements="0"/>
+        <line num="130" type="stmt" count="0"/>
+        <line num="134" type="stmt" count="0"/>
+        <line num="137" type="stmt" count="0"/>
+        <metrics loc="140" ncloc="125" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="50" coveredstatements="0" elements="53" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Controller/CompteController.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Controller/CompteController.php">
         <class name="App\Controller\CompteController" namespace="App\Controller">
           <metrics complexity="3" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="0" elements="19" coveredelements="0"/>
         </class>
-        <line num="29" type="method" name="new" visibility="public" complexity="3" crap="12" count="0"/>
-        <line num="31" type="stmt" count="0"/>
+        <line num="31" type="method" name="new" visibility="public" complexity="3" crap="12" count="0"/>
         <line num="33" type="stmt" count="0"/>
         <line num="35" type="stmt" count="0"/>
-        <line num="36" type="stmt" count="0"/>
         <line num="37" type="stmt" count="0"/>
         <line num="38" type="stmt" count="0"/>
         <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
         <line num="41" type="stmt" count="0"/>
         <line num="43" type="stmt" count="0"/>
         <line num="45" type="stmt" count="0"/>
         <line num="47" type="stmt" count="0"/>
-        <line num="48" type="stmt" count="0"/>
-        <line num="52" type="stmt" count="0"/>
-        <line num="53" type="stmt" count="0"/>
-        <line num="56" type="stmt" count="0"/>
-        <line num="59" type="stmt" count="0"/>
-        <line num="63" type="stmt" count="0"/>
-        <line num="66" type="stmt" count="0"/>
-        <metrics loc="70" ncloc="64" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="0" elements="19" coveredelements="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="65" type="stmt" count="0"/>
+        <line num="68" type="stmt" count="0"/>
+        <metrics loc="72" ncloc="65" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="0" elements="19" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Controller/PartenaireController.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Controller/PartenaireController.php">
         <class name="App\Controller\PartenaireController" namespace="App\Controller">
           <metrics complexity="8" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="38" coveredstatements="19" elements="40" coveredelements="19"/>
         </class>
@@ -129,7 +134,7 @@
       </file>
     </package>
     <package name="App\Entity">
-      <file name="/home/mister_d/Bureau/transfert/src/Entity/Compte.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Entity/Compte.php">
         <class name="App\Entity\Compte" namespace="App\Entity">
           <metrics complexity="12" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="17" coveredelements="0"/>
         </class>
@@ -152,7 +157,7 @@
         <line num="74" type="stmt" count="0"/>
         <metrics loc="76" ncloc="58" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="17" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Entity/Partenaire.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Entity/Partenaire.php">
         <class name="App\Entity\Partenaire" namespace="App\Entity">
           <metrics complexity="43" methods="25" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="20" elements="71" coveredelements="30"/>
         </class>
@@ -229,7 +234,7 @@
         <line num="243" type="stmt" count="1"/>
         <metrics loc="245" ncloc="196" classes="1" methods="25" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="20" elements="71" coveredelements="30"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Entity/Profil.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Entity/Profil.php">
         <class name="App\Entity\Profil" namespace="App\Entity">
           <metrics complexity="12" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="0" elements="23" coveredelements="0"/>
         </class>
@@ -258,7 +263,7 @@
         <line num="84" type="stmt" count="0"/>
         <metrics loc="86" ncloc="66" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="0" elements="23" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Entity/Utilisateur.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Entity/Utilisateur.php">
         <class name="App\Entity\Utilisateur" namespace="App\Entity">
           <metrics complexity="40" methods="27" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="47" coveredstatements="0" elements="74" coveredelements="0"/>
         </class>
@@ -340,7 +345,7 @@
       </file>
     </package>
     <package name="App\Form">
-      <file name="/home/mister_d/Bureau/transfert/src/Form/CompteType.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Form/CompteType.php">
         <class name="App\Form\CompteType" namespace="App\Form">
           <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="9" coveredelements="0"/>
         </class>
@@ -357,9 +362,9 @@
       </file>
     </package>
     <package name="App">
-      <file name="/home/mister_d/Bureau/transfert/src/Kernel.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Kernel.php">
         <class name="App\Kernel" namespace="App">
-          <metrics complexity="6" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="11" elements="23" coveredelements="14"/>
+          <metrics complexity="6" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="23" coveredelements="23"/>
         </class>
         <line num="18" type="method" name="registerBundles" visibility="public" complexity="3" crap="3" count="1"/>
         <line num="20" type="stmt" count="1"/>
@@ -369,26 +374,26 @@
         <line num="26" type="stmt" count="1"/>
         <line num="28" type="method" name="getProjectDir" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="30" type="stmt" count="1"/>
-        <line num="33" type="method" name="configureContainer" visibility="protected" complexity="1" crap="2" count="0"/>
-        <line num="35" type="stmt" count="0"/>
-        <line num="36" type="stmt" count="0"/>
-        <line num="37" type="stmt" count="0"/>
-        <line num="39" type="stmt" count="0"/>
-        <line num="40" type="stmt" count="0"/>
-        <line num="41" type="stmt" count="0"/>
-        <line num="42" type="stmt" count="0"/>
-        <line num="43" type="stmt" count="0"/>
+        <line num="33" type="method" name="configureContainer" visibility="protected" complexity="1" crap="1" count="1"/>
+        <line num="35" type="stmt" count="1"/>
+        <line num="36" type="stmt" count="1"/>
+        <line num="37" type="stmt" count="1"/>
+        <line num="39" type="stmt" count="1"/>
+        <line num="40" type="stmt" count="1"/>
+        <line num="41" type="stmt" count="1"/>
+        <line num="42" type="stmt" count="1"/>
+        <line num="43" type="stmt" count="1"/>
         <line num="45" type="method" name="configureRoutes" visibility="protected" complexity="1" crap="1" count="1"/>
         <line num="47" type="stmt" count="1"/>
         <line num="49" type="stmt" count="1"/>
         <line num="50" type="stmt" count="1"/>
         <line num="51" type="stmt" count="1"/>
         <line num="52" type="stmt" count="1"/>
-        <metrics loc="53" ncloc="53" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="11" elements="23" coveredelements="14"/>
+        <metrics loc="53" ncloc="53" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="23" coveredelements="23"/>
       </file>
     </package>
     <package name="DoctrineMigrations">
-      <file name="/home/mister_d/Bureau/transfert/src/Migrations/Version20190728020403.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Migrations/Version20190728020403.php">
         <class name="DoctrineMigrations\Version20190728020403" namespace="DoctrineMigrations">
           <metrics complexity="3" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
         </class>
@@ -404,7 +409,7 @@
         <line num="34" type="stmt" count="0"/>
         <metrics loc="35" ncloc="28" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Migrations/Version20190728020647.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Migrations/Version20190728020647.php">
         <class name="DoctrineMigrations\Version20190728020647" namespace="DoctrineMigrations">
           <metrics complexity="3" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
         </class>
@@ -420,7 +425,7 @@
         <line num="34" type="stmt" count="0"/>
         <metrics loc="35" ncloc="28" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Migrations/Version20190728041704.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Migrations/Version20190728041704.php">
         <class name="DoctrineMigrations\Version20190728041704" namespace="DoctrineMigrations">
           <metrics complexity="3" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
         </class>
@@ -436,7 +441,7 @@
         <line num="34" type="stmt" count="0"/>
         <metrics loc="35" ncloc="28" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Migrations/Version20190728154210.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Migrations/Version20190728154210.php">
         <class name="DoctrineMigrations\Version20190728154210" namespace="DoctrineMigrations">
           <metrics complexity="3" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
         </class>
@@ -452,7 +457,7 @@
         <line num="34" type="stmt" count="0"/>
         <metrics loc="35" ncloc="28" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Migrations/Version20190730104951.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Migrations/Version20190730104951.php">
         <class name="DoctrineMigrations\Version20190730104951" namespace="DoctrineMigrations">
           <metrics complexity="3" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="16" coveredelements="0"/>
         </class>
@@ -474,7 +479,7 @@
         <line num="40" type="stmt" count="0"/>
         <metrics loc="41" ncloc="34" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="16" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Migrations/Version20190730114037.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Migrations/Version20190730114037.php">
         <class name="DoctrineMigrations\Version20190730114037" namespace="DoctrineMigrations">
           <metrics complexity="3" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="16" coveredelements="0"/>
         </class>
@@ -496,7 +501,7 @@
         <line num="40" type="stmt" count="0"/>
         <metrics loc="41" ncloc="34" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="16" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Migrations/Version20190730114344.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Migrations/Version20190730114344.php">
         <class name="DoctrineMigrations\Version20190730114344" namespace="DoctrineMigrations">
           <metrics complexity="3" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
         </class>
@@ -514,7 +519,7 @@
       </file>
     </package>
     <package name="App\Repository">
-      <file name="/home/mister_d/Bureau/transfert/src/Repository/CompteRepository.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Repository/CompteRepository.php">
         <class name="App\Repository\CompteRepository" namespace="App\Repository">
           <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
         </class>
@@ -523,7 +528,7 @@
         <line num="20" type="stmt" count="0"/>
         <metrics loc="50" ncloc="14" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Repository/PartenaireRepository.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Repository/PartenaireRepository.php">
         <class name="App\Repository\PartenaireRepository" namespace="App\Repository">
           <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
         </class>
@@ -532,7 +537,7 @@
         <line num="20" type="stmt" count="0"/>
         <metrics loc="50" ncloc="14" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Repository/ProfilRepository.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Repository/ProfilRepository.php">
         <class name="App\Repository\ProfilRepository" namespace="App\Repository">
           <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
         </class>
@@ -541,7 +546,7 @@
         <line num="20" type="stmt" count="0"/>
         <metrics loc="50" ncloc="14" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
       </file>
-      <file name="/home/mister_d/Bureau/transfert/src/Repository/UtilisateurRepository.php">
+      <file name="/home/mister_d/Bureau/transfertok/src/Repository/UtilisateurRepository.php">
         <class name="App\Repository\UtilisateurRepository" namespace="App\Repository">
           <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
         </class>
@@ -551,6 +556,6 @@
         <metrics loc="50" ncloc="14" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
       </file>
     </package>
-    <metrics files="20" loc="1521" ncloc="1141" classes="20" methods="103" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="315" coveredstatements="52" elements="418" coveredelements="66"/>
+    <metrics files="20" loc="1531" ncloc="1149" classes="20" methods="103" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="320" coveredstatements="60" elements="423" coveredelements="75"/>
   </project>
 </coverage>
