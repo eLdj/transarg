@@ -23,7 +23,7 @@ class PartenaireControllerTest extends WebTestCase
             "numeroCompte":1235452,
             "utilisateur":1,
             "montantCompte":50000,
-            "statut":"débloqué"
+            "statut":"bloqué"
         }');
         $rep=$client->getResponse();
             var_dump($rep);

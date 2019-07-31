@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
+<<<<<<< HEAD
   <testsuite name="Project Test Suite" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.542988">
     <testsuite name="App\Tests\PartenaireControllerTest" file="/home/mister_d/Bureau/transfertok/tests/PartenaireControllerTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.542988">
       <testcase name="testAddPartenaireok" class="App\Tests\PartenaireControllerTest" classname="App.Tests.PartenaireControllerTest" file="/home/mister_d/Bureau/transfertok/tests/PartenaireControllerTest.php" line="9" assertions="1" time="0.542988">
         <system-out>/home/mister_d/Bureau/transfertok/tests/PartenaireControllerTest.php:29:
 class Symfony\Component\HttpFoundation\JsonResponse#7904 (9) {
+=======
+  <testsuite name="Project Test Suite" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="1.056072">
+    <testsuite name="App\Tests\PartenaireControllerTest" file="/home/aminata/transarg/tests/PartenaireControllerTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="1.056072">
+      <testcase name="testAddPartenaireok" class="App\Tests\PartenaireControllerTest" classname="App.Tests.PartenaireControllerTest" file="/home/aminata/transarg/tests/PartenaireControllerTest.php" line="9" assertions="1" time="1.056072">
+        <system-out>/home/aminata/transarg/tests/PartenaireControllerTest.php:26:
+class Symfony\Component\HttpFoundation\JsonResponse#8014 (9) {
+>>>>>>> 14931495700a7197d8cadaba5aefca36ee97ef11
   protected $data =&gt;
   string(53) "{"status":201,"message":"Partenaire enregistr\u00e9"}"
   protected $callback =&gt;
@@ -12,7 +20,11 @@ class Symfony\Component\HttpFoundation\JsonResponse#7904 (9) {
   protected $encodingOptions =&gt;
   int(15)
   public $headers =&gt;
+<<<<<<< HEAD
   class Symfony\Component\HttpFoundation\ResponseHeaderBag#7868 (5) {
+=======
+  class Symfony\Component\HttpFoundation\ResponseHeaderBag#7978 (5) {
+>>>>>>> 14931495700a7197d8cadaba5aefca36ee97ef11
     protected $computedCacheControl =&gt;
     array(2) {
       'no-cache' =&gt;
